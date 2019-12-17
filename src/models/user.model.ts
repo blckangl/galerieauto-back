@@ -23,7 +23,8 @@ export const UserSchema = new Schema({
         type: Number
     },
     password: {
-        type: String
+        type: String,
+        select:false
     },
     _role: {
         type: [{

@@ -2,7 +2,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export class CONSTANTS{
-    static SECRET_KEY:string = process.env.OVERNIGHT_JWT_SECRET;
-    static EXPIRATION_DATE:string = process.env.OVERNIGHT_JWT_EXP;
-    static PORT:string = process.env.SERVER_PORT;
+    static SECRET_KEY:string ="mYSecretKeyElite";
+    static EXPIRATION_DATE:string = "10h";
+    static PORT:number = 8080;
+    static ERRORS = {
+        "NOTFOUND":'No match for this id'
+    }
 }
