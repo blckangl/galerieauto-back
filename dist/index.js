@@ -4,7 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sampleserver_1 = __importDefault(require("./server/sampleserver"));
+const constants_1 = require("./config/constants");
 let server;
 server = new sampleserver_1.default();
-server.start(3050);
+server.start(constants_1.CONSTANTS.PORT);
 //# sourceMappingURL=index.js.map

@@ -12,6 +12,7 @@ export class MongoHelper {
                 if (err) {
                     reject(err);
                 } else {
+                    console.log("mongo connected");
                     MongoHelper.client = client;
                     resolve(client);
                 }

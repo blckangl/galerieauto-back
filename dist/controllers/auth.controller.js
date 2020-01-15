@@ -12,12 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const http_status_codes_1 = require("http-status-codes");
 const jwt_1 = require("@overnightjs/jwt");
 const core_1 = require("@overnightjs/core");
-const jwtMgr = new jwt_1.JwtManager('mysecretKey', '10h');
+const constants_1 = require("../config/constants");
+const jwtMgr = new jwt_1.JwtManager(constants_1.CONSTANTS.SECRET_KEY, constants_1.CONSTANTS.EXPIRATION_DATE);
 let jwtController = class jwtController {
     getJwtFromHandler(req, res) {
         const jwtStr = jwtMgr.jwt({
             fullName: req.params.fullname,
-            email: "dhiaa@gmail.com"
+            email: "dhiaa@gmail.com",
+            role: 0
         });
         return res.status(http_status_codes_1.OK).json({
             jwt: jwtStr,
@@ -37,7 +39,7 @@ __decorate([
 ], jwtController.prototype, "getJwtFromHandler", null);
 __decorate([
     core_1.Post('protected'),
-    core_1.Middleware(jwtMgr.middleware),
+    core_1.Middleware(jwt_1.JwtManager.middleware),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)

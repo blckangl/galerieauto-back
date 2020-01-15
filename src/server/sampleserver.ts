@@ -10,7 +10,7 @@ import {AnnouncesController} from "../controllers/annonce.controller";
 import cors from 'cors';
 export default class SampleServer extends Server {
     // public mongoUrl: string = 'mongodb://151.80.123.209:27017/gallerieauto';
-    public mongoUrl: string = 'mongodb://admin:123456Mongo@151.80.123.209/gallerieauto?authSource=admin&w=1\n';
+    public mongoUrl: string = 'mongodb://admin:123456Mongo@51.77.214.181/gallerieauto?authSource=admin&w=1\n';
 
 
     constructor() {
@@ -34,6 +34,7 @@ export default class SampleServer extends Server {
         super.addControllers([userController, AuthController,announceController]);
     }
     private mongoSetup(): void{
+        console.log("starting setup");
         mongoose.connect(this.mongoUrl, { useNewUrlParser: true,useUnifiedTopology: true},(err)=>{
             if(err){
                 console.log(err);
